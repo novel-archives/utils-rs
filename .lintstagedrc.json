@@ -1,0 +1,4 @@
+{
+	"*.{json,yaml,md,html}": "npm run fix:prettier",
+	"*.rs": ".husky/hooks/pre-commit/rustfmt.sh"
+}
