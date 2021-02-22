@@ -3,8 +3,8 @@
 
 set -eu
 
-cr=$(dirname $0)
-cd $cr
+wd=$(dirname $0)/..
+cd $wd
 remote="$1"
 url="$2"
 
@@ -31,7 +31,7 @@ do
 	export GIT_HOOKS_REMOTE_REF="$remote_ref"
 	export GIT_HOOKS_REMOTE_SHA="$remote_sha"
 	export GIT_HOOKS_SHA_RANGE="$range"
-	./hooks/pre-push/runner.sh
+	scripts/git/hooks/utils/runner.sh scripts/git/hooks/pre-push
 done
 
 exit 0

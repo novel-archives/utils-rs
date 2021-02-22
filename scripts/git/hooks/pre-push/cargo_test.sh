@@ -3,11 +3,12 @@
 set -eu
 
 
-wd=$(dirname $0)/../../../..
-cd $wd
+cd $(dirname $0)/../../../..
+wd=$(pwd)
 
-if $wd/scripts/git/hooks/utils/check_wip.sh; then
+if $wd/scripts/git/hooks/utils/is_remote_branch_wip.sh; then
 	exit 0
 fi
 
-cargo test
+
+cargo make pre-push
